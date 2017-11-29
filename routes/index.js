@@ -20,8 +20,7 @@ router.get('/startMonitor', function(req, res, next) {
         GetDataEngine.getDataOfStock(item, (data)=>{
           analysisor.analysis(data, item);
           task.end();
-          if(index == stocks.length-1){
-
+          if(index == stocks.length-1 && !stopFlag){
             setTimeout(()=>{
               analysisStocks();
             }, 5000);
@@ -36,6 +35,15 @@ router.get('/startMonitor', function(req, res, next) {
     });
   }
   analysisStocks(res, true);
+});
+
+router.get('/stopMonitor', function(req, res, next) {
+  stopFlag = true;
+  res.json({result:true});
+});
+
+router.get('/isMonotoring', function(req, res, next) {
+  res.json({result:stopFlag});
 });
 
 router.get('/setStocks', function(req, res, next) {

@@ -1,10 +1,17 @@
+let raiseFromFlor = require('./calculators/底部突破');
+
+let calculators=[raiseFromFlor.calculate];
+
+
 function analysis(data, stock){
     console.log(JSON.stringify(data));
     if(data.length>150){
         _generateFibla(data);
+        calculators.forEach((calculator)=>{
+            calculator.apply(this, data, stock);
+        });
         console.log(data[data.length-1]);
     }
-    
 }
 
 function _generateFibla(data){
