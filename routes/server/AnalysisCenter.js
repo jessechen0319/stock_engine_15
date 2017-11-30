@@ -7,11 +7,9 @@ function analysis(data, stock){
     
     if(data.length>150){
         _generateFibla(data);
-        console.log(JSON.stringify(data));
         calculators.forEach((calculator)=>{
-            calculator.apply(this, data, stock);
+            raiseFromFlor.calculate(data, stock);
         });
-        console.log(data[data.length-1]);
     }
 }
 
