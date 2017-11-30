@@ -4,9 +4,10 @@ let calculators=[raiseFromFlor.calculate];
 
 
 function analysis(data, stock){
-    console.log(JSON.stringify(data));
+    
     if(data.length>150){
         _generateFibla(data);
+        console.log(JSON.stringify(data));
         calculators.forEach((calculator)=>{
             calculator.apply(this, data, stock);
         });
