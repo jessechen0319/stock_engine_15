@@ -13,8 +13,8 @@ function calculate(data, stock){
         let cha34 = Math.abs(latestRecord.m34 - latestRecord.m55)/latestRecord.open;
         if(cha13<0.01 && cha34<0.01){//均线粘合
             let cha144 = latestRecord.m144 - data[data.length-6].m144;
-            cha144 = Math.abs(cha144/latestRecord.open);
-            if(cha144<=0.008){//144走平
+            cha144 = Math.abs(cha144);
+            if(cha144<=0.04){//144走平
                 let cha = latestRecord.m144 - latestRecord.close;
                 cha = cha/latestRecord.close;
                 if(cha>0.025){//144高过两个点
