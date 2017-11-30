@@ -1,7 +1,7 @@
 //13, 34向上，在55线下方，144线走平，13，34，55走势粘合，不超过一个点。股价在13，34，55上方。
 
 let SendResult = require('./popupResult');
-
+//strategy name=底部突破
 function calculate(data, stock){
     if(data.length < 155){
         return false;
@@ -20,7 +20,7 @@ function calculate(data, stock){
                 if(cha>0.025){//144高过两个点
                     if(latestRecord.close>latestRecord.m13 && latestRecord.close>latestRecord.m34 && latestRecord.close>latestRecord.m55){
                         //股价站上所有均线
-                        SendResult.sendResultToServer(stock, '底部突破', latestRecord.day);
+                        SendResult.sendResultToServer(stock, 'stg_1', latestRecord.day);
                     }
                 }
             }
