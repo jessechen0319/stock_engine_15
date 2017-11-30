@@ -12,28 +12,27 @@ let taskRunner = new taskchain.ChainTaskRunner();
 /* GET home page. */
 
 function getNext15MinsTimeOut(){
-  
-      let now = new Date();
-      let target = new Date();
-      let targetMins = 0;
-      let targetHour = 1;
-      if(0<Number(now.getMinutes()) && Number(now.getMinutes())<15){
-          targetMins = 15;
-      } else if (15<=Number(now.getMinutes()) && Number(now.getMinutes())<30){
-          targetMins = 30
-      } else if (30<=Number(now.getMinutes()) && Number(now.getMinutes())<45){
-          targetMins = 45
-      } else {
-          targetHour = 1;
-      }
-      target.setHours(now.getHours() + targetHour);
-      target.setMinutes(targetMins);
-      return target.getTime()-now.getTime();
-  }
+
+    let now = new Date();
+    let target = new Date();
+    let targetMins = 0;
+    let targetHour = 1;
+    if(0<Number(now.getMinutes()) && Number(now.getMinutes())<15){
+        targetMins = 15;
+    } else if (15<=Number(now.getMinutes()) && Number(now.getMinutes())<30){
+        targetMins = 30
+    } else if (30<=Number(now.getMinutes()) && Number(now.getMinutes())<45){
+        targetMins = 45
+    } else {
+        targetHour = 1;
+    }
+    target.setHours(now.getHours() + targetHour);
+    target.setMinutes(targetMins);
+    return target.getTime()-now.getTime();
+}
 
 router.get('/startMonitor', function(req, res, next) {
   stopFlag = false;
-  Number(
   function analysisStocks(res, initialFlag){
     let stocks = jsonfile.readFileSync(JSONFILEPATH);
     //res.json(stocks);
@@ -55,7 +54,7 @@ router.get('/startMonitor', function(req, res, next) {
       });
       taskRunner.addTask(task);
     });
-  });
+  }
   analysisStocks(res, true);
 });
 
