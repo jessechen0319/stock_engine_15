@@ -9,6 +9,7 @@ let GetDataEngine = require('./server/Get15MinDataEngine');
 const JSONFILEPATH = __dirname+"/server/stocks.json";
 let stopFlag = false;
 let taskRunner = new taskchain.ChainTaskRunner();
+let SERVERREQ = require('./server/calculators/popupResult');
 /* GET home page. */
 
 function getNext15MinsTimeOut(){
@@ -34,6 +35,7 @@ function getNext15MinsTimeOut(){
 router.get('/startMonitor', function(req, res, next) {
   stopFlag = false;
   function analysisStocks(res, initialFlag){
+    SERVERREQ.cleanResultFromServer();
     let stocks = jsonfile.readFileSync(JSONFILEPATH);
     //res.json(stocks);
     stocks.forEach((item, index)=>{

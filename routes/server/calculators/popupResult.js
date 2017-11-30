@@ -16,5 +16,5 @@ function cleanResultFromServer(){
         console.log(data);
     });
 }
-
+exports.cleanResultFromServer = cleanResultFromServer;
 exports.sendResultToServer = sendResultToServer;
