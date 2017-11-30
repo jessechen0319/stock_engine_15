@@ -3,7 +3,7 @@
 let SendResult = require('./popupResult');
 
 function calculate(data, stock){
-    if(data.length < 150){
+    if(data.length < 155){
         return false;
     }
     let latestRecord = data[data.length-1];
@@ -12,9 +12,9 @@ function calculate(data, stock){
         let cha13 = Math.abs(latestRecord.m13 - latestRecord.m55)/latestRecord.open;
         let cha34 = Math.abs(latestRecord.m34 - latestRecord.m55)/latestRecord.open;
         if(cha13<0.01 && cha34<0.01){//均线粘合
-            let cha144 = latestRecord.m144 - data[data.length-6].m144;
+            let cha144 = latestRecord.m144 - data[data.length-8].m144;
             cha144 = Math.abs(cha144);
-            if(cha144<=0.04){//144走平
+            if(cha144<=0.03){//144走平
                 let cha = latestRecord.m144 - latestRecord.close;
                 cha = cha/latestRecord.close;
                 if(cha>0.025){//144高过两个点

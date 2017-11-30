@@ -9,4 +9,12 @@ function sendResultToServer(stock, strategy, timeDate){
     });
 }
 
+function cleanResultFromServer(){
+    let url = `http://${SERVERPATH}/clean`;
+    GetRequest.download(url, (data)=>{
+        console.log('---------clean Data--------');
+        console.log(data);
+    });
+}
+
 exports.sendResultToServer = sendResultToServer;
