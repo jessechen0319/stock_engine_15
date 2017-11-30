@@ -55,7 +55,7 @@ router.get('/startMonitor', function(req, res, next) {
       });
       taskRunner.addTask(task);
     });
-  }
+  });
   analysisStocks(res, true);
 });
 
