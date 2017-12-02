@@ -13,7 +13,7 @@ function calculate(data, stock){
     if(latestRecord.m34 >= compare.m34){
         if(latestRecord.m55 >= compare.m55){
             let isBiggerThanBoll = false;
-            for(let i = date.length - 9; i<= data.length-2; i++){
+            for(let i = data.length - 9; i<= data.length-2; i++){
                 if(data[i].close>data[i].Boll_ma){
                     isBiggerThanBoll = true;
                 }
