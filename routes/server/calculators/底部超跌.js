@@ -10,7 +10,7 @@ function calculate(data, stock){
 
     let m144_13 = latestRecord.m144 - latestRecord.m13;
     m144_13 = m144_13/latestRecord.close;
-    if(m144_13 >=0.04){
+    if(m144_13 >=0.03){
         let m55_13  = latestRecord.m55 - latestRecord.m13;
         m55_13 = Math.abs(m55_13);
         if(m55_13/latestRecord.close <= 0.005){
@@ -19,7 +19,7 @@ function calculate(data, stock){
             if(m34_13/latestRecord.close <= 0.005){
                 let m_p_13 = latestRecord.m13 - latestRecord.close;
                 m_p_13 = m_p_13/latestRecord.close;
-                if(m_p_13>=0.015){
+                if(m_p_13>=0.01){
                     SendResult.sendResultToServer(stock, 'stg_3', latestRecord.day);
                 }
             }
