@@ -1,5 +1,6 @@
 let raiseFromFlor = require('./calculators/底部突破');
 let bollRaise = require('./calculators/突破布林线');
+let chaodie = require("./calculators/底部超跌");
 
 let calculators=[raiseFromFlor.calculate];
 
@@ -12,7 +13,8 @@ function analysis(data, stock){
         // calculators.forEach((calculator)=>{
         //     raiseFromFlor.calculate(data, stock);
         // });
-        bollRaise.calculate(data, stock);
+        //bollRaise.calculate(data, stock);
+        chaodie.calculate(data, stock);
     }
 }
 
