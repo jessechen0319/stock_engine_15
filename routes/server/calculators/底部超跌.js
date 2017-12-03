@@ -10,7 +10,7 @@ function calculate(data, stock){
 
     let m144_13 = latestRecord.m144 - latestRecord.m13;
     m144_13 = m144_13/latestRecord.close;
-    if(m144_13 >=0.05){
+    if(m144_13 >=0.04){
         let m55_13  = latestRecord.m55 - latestRecord.m13;
         m55_13 = Math.abs(m55_13);
         if(m55_13/latestRecord.close <= 0.005){
