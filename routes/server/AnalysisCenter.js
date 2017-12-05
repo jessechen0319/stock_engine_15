@@ -1,6 +1,7 @@
 let raiseFromFlor = require('./calculators/底部突破');
 let bollRaise = require('./calculators/突破布林线');
 let chaodie = require("./calculators/底部超跌");
+let zhicheng = require("./calculators/BOLL强支撑");
 
 let calculators=[raiseFromFlor.calculate];
 
@@ -14,7 +15,8 @@ function analysis(data, stock){
         //     raiseFromFlor.calculate(data, stock);
         // });
         //bollRaise.calculate(data, stock);
-        chaodie.calculate(data, stock);
+        //chaodie.calculate(data, stock);
+        zhicheng.calculate(data, stock);
     }
 }
 
